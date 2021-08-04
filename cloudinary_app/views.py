@@ -31,7 +31,7 @@ def upload_categorized_img(request, *args, **kwargs):
         img = up.upload(
             imgFile,
             folder = kwargs["folder"],
-            public_id = uuid.uuid4(),
+            public_id = str(uuid.uuid4()),
             overwrite = True,
             categorization = "google_tagging",
             auto_tagging = 0.6
