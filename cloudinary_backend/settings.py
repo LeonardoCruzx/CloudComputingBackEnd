@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'cloudinary_app'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'cloudinary_backend.urls'
@@ -139,7 +143,10 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CORS CONFIG
-CORS_ORIGIN_WHITELIST = ["*"]
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200',
+    'https://cloud-computing-front-end.vercel.app'
+]
 
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))

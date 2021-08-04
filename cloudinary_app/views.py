@@ -59,3 +59,8 @@ def get_categorized_img(request, *args, **kwargs):
                 images.append(MyImageSerializer(MyImage(img["url"], img["public_id"], img["width"], img["height"], img["bytes"] // 1024)).data)
     return Response(images)
 
+
+@api_view(["DELETE"])
+def delete_img(request, *args, **kwargs):
+    up.destroy(kwargs["folder"] + "/" + kwargs["id"])
+    return Response("Deletado com sucesso!")
