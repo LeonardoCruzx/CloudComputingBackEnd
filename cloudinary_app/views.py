@@ -8,6 +8,8 @@ from rest_framework.response import Response
 import cloudinary as cd
 import cloudinary.api as ca
 import cloudinary.uploader as up
+
+import uuid
 # Create your views here.
 
 @api_view(["GET"])
@@ -29,7 +31,7 @@ def upload_categorized_img(request, *args, **kwargs):
         img = up.upload(
             imgFile,
             folder = kwargs["folder"],
-            public_id = kwargs["id"],
+            public_id = uuid.uuid4(),
             overwrite = True,
             categorization = "google_tagging",
             auto_tagging = 0.6
