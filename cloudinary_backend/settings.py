@@ -12,6 +12,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+
+ccn = os.getenv("cloudinary_cloud_name")
+cak = os.getenv("cloudinary_api_key")
+cas = os.getenv("cloudinary_api_secret")
+
+if (ccn != None and cak != None and cas != None):
+    cloudinary.config( 
+        cloud_name = ccn, 
+        api_key = cak, 
+        api_secret = cas
+    )
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
